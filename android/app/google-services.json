@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "107996470229",
+    "firebase_url": "https://gardendatabases-default-rtdb.firebaseio.com",
+    "project_id": "gardendatabases",
+    "storage_bucket": "gardendatabases.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107996470229:android:072b1e06a1b838d58dfb5c",
+        "android_client_info": {
+          "package_name": "com.newprojectplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107996470229-jv4old711ppd825u7jiflcp32pmlt0sd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.newprojectplay",
+            "certificate_hash": "d606de70cb05480180bd48d04f896b8bf0a90908"
+          }
+        },
+        {
+          "client_id": "107996470229-bsh7jebq2kk5u7c0hf0ououfvr84kuui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSVHhvmK00V8RIHA5R_r6L5Cxe925POOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107996470229-bsh7jebq2kk5u7c0hf0ououfvr84kuui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
