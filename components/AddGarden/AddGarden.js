@@ -3,8 +3,8 @@ import { Button, View, Text,StyleSheet,TouchableOpacity } from 'react-native';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
 
-export default  function AddGarden({todo,PressHandler,index}){
-    // const count;
+export function AddGarden({todo,PressHandler,index}){
+   
     if(todo.text != "")
     {
         return(
