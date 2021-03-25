@@ -6,9 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SignUp from './components/LoginForder/SignUp';
 import Login from './components/LoginForder/Login';
 import Main from './components/LoginForder/main';    
-import AddGarden from './components/AddGarden/AddGarden';
-import buttonAdd from './components/AddGarden/buttonAdd';
-import Header from './components/AddGarden/Header';
+import yourGarden from './components/AddGarden/yourGarden';
 
 
 import database, { firebase } from '@react-native-firebase/database';
@@ -24,9 +22,10 @@ function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="AddGarden" component={AddGarden} />
-        <Stack.Screen name="buttonAdd" component={buttonAdd} />
-        <Stack.Screen name="Header" component={Header} />
+
+        <Stack.Screen name="yourGarden" component={yourGarden} />
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );

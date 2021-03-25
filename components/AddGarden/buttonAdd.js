@@ -4,7 +4,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import styles from '../style/styles';
  
 
-export default function buttonAdd({SubmitHandler,inputValue,setInputValue}){
+export default function ButtonAdd({SubmitHandler,inputValue,setInputValue}){
     const changeHandler =(val) =>{
         setInputValue(val);
     }

@@ -4,24 +4,27 @@ import { Button, View, Text,StyleSheet,TouchableOpacity } from 'react-native';
 
 
 export default  function AddGarden({todo,PressHandler,index}){
-    return(
-        
+    // const count;
+    if(todo.text != "")
+    {
+        return(
+            
             <View style={styles.item}>
                 <TouchableOpacity 
                     style={styles.SigUpButton}
                     onPress={ () => alert("hello")}>
-                    <Text style={{alignItems:'flex-start'}}>{index +1}. {todo.text} 
-                    </Text> 
-                </TouchableOpacity>
-
+                        <Text style={{alignItems:'flex-start'}}>{index + 1}. {todo.text} </Text>
+                </TouchableOpacity >
                 <TouchableOpacity 
-                style={styles.DeleteButton}
-                onPress={ () => PressHandler(todo.key )}>
+                    style={styles.DeleteButton}
+                    onPress={ () => PressHandler(todo.key )}>
                     <Text> x </Text>
                 </TouchableOpacity>
-               
+                
             </View>
-    )
+        
+        )
+    }
 };
 const styles = StyleSheet.create({
     item: {
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
       backgroundColor:'#49dd8c'
     },
     SigUpButton:{
-        flex:8,
+        flex:8, 
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 7,

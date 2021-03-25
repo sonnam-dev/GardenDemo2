@@ -22,7 +22,7 @@ const Main = ({navigation}) => {
                 <View>
                     <TouchableOpacity 
                         onPress= {()=>{
-                            navigation.navigate('AddGarden');
+                            navigation.navigate('yourGarden');
                         }} 
                         style={styles.appButtonContainer}>
                         <Text style={styles.appButtonText}>YOUR GARDEN MANAGER</Text>
