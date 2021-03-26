@@ -1,13 +1,13 @@
 
 import React, {useState} from 'react';
-import {View, Text,Button,TouchableOpacity,ScrollView,Alert,TouchableWithoutFeedback,Keyboard,TextInput  } from 'react-native';
+import {View, Text,Button,TouchableOpacity,ScrollView,Alert,TouchableWithoutFeedback,Keyboard,TextInput, FlatList, } from 'react-native';
 import styles from '../style/styles' ;
-import Header from './Header';
-import AddGarden from './AddGarden';
+import AddGarden, { submidUser } from './AddGarden';
 import ButtonAdd from './ButtonAdd';
+import database from '@react-native-firebase/database';
+import { Item } from 'native-base';
 
-
-
+  
 const GardenScreen = ({navigation}) =>{
     
     const [Id,setId] = React.useState();
@@ -15,11 +15,36 @@ const GardenScreen = ({navigation}) =>{
     const [User,setUser] = React.useState([]);
 
     const CreateGarder = () => {
-        alert(Name);
+        submidUser(Id,Name)
+        .then(result => {
+            setId(null);
+            setName('');
+        }).catch(error => {
+            console.log(error);
+        });
     }
+    React.useEffect(() => {
+        const userRef = database().ref('/User');
+        const OnLoadingListener = userRef.on('value',snapshot =>{
+            setUser([]);
+            snapshot.forEach(function(childSnapshot){
+                setUser(User => [...User,childSnapshot.val()]);
 
+            });
+
+
+        });
+        return() =>{
+            userRef.off('value',OnLoadingListener);
+        };
+    })
+    // const data = User.map(item,index);
+    const data =[ User.map((item,index) => {
+        id =  item.Id,
+        name = item.Name
+    },)];
     return(
-        <ScrollView>
+        <View>
             <TouchableWithoutFeedback onPress ={() =>{
                 Keyboard.dismiss();
             }}>
@@ -36,9 +61,17 @@ const GardenScreen = ({navigation}) =>{
             >
                 <Text>Create</Text>
             </TouchableOpacity>
-        </View>
+            </View>
             </TouchableWithoutFeedback>
-        </ScrollView>
+            <FlatList
+                data={data}
+                renderItem={({ item }) => <Item name={item.name} />}
+                keyExtractor={item => item.id}
+            />
+            
+            
+
+        </View>
         )
     }
 export default GardenScreen;    
