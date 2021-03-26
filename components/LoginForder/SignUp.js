@@ -9,9 +9,9 @@ import auth from '@react-native-firebase/auth';
 const SignUp = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [firtsname, setsetFirtsName] = useState("");
-  const [lastname, setLastName] = useState("");
-  const [confirmpassword, setConfirmPassword] = useState("");
+  const [firtsname, setsetFirtsName] = useState('');
+  const [lastname, setLastName] = useState('');
+  const [confirmpassword, setConfirmPassword] = useState('');
   
   const register = (email,password) =>{
     auth()
