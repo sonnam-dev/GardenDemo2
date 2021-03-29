@@ -229,8 +229,19 @@ const styles = StyleSheet.create({
         fontSize:19,
       },
       
-      hello:{
-        
+      viewGarden:{
+        width:"80%",
+        height:40,
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop:15,
+        marginLeft: 50,
+        backgroundColor:"pink",
+      },
+      textLoad:{
+        fontSize:28,
+        color: 'white',
+
       }
 
 

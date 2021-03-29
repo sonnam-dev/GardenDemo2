@@ -1,5 +1,4 @@
-
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text,Button,TouchableOpacity,ScrollView,Alert,TouchableWithoutFeedback,Keyboard,TextInput, FlatList, } from 'react-native';
 import styles from '../style/styles' ;
 import AddGarden, { submidUser } from './AddGarden';
@@ -13,36 +12,72 @@ const GardenScreen = ({navigation}) =>{
     const [Id,setId] = React.useState();
     const [Name,setName] = React.useState('');
     const [User,setUser] = React.useState([]);
+    const { useState } = React;
 
+    
     const CreateGarder = () => {
-        submidUser(Id,Name)
-        .then(result => {
-            setId(null);
-            setName('');
-        }).catch(error => {
-            console.log(error);
-        });
-    }
-    React.useEffect(() => {
-        const userRef = database().ref('/User');
-        const OnLoadingListener = userRef.on('value',snapshot =>{
-            setUser([]);
-            snapshot.forEach(function(childSnapshot){
-                setUser(User => [...User,childSnapshot.val()]);
-
+        if(Name == ""){
+            // alert("Type some thing...");
+            console.log("-------");
+        }else{
+            submidUser(Id,Name)
+            .then(result => {
+                setId(null);
+                setName('');
+            }).catch(error => {
+                console.log("loi :" ,error);
             });
+        }
+    }
 
+    const[data,setData] = useState([]);
+    
+    useEffect (() =>{
+        const getData = async () => {
+            await database().ref("/Users").on('value',snapshot => {
+                console.log("Data RDB: ", snapshot.val());
+                let arr = [];
+                snapshot.forEach(element => {
+                    let temp  = {
+                        id : element.key,
+                        name: element.val().Name,
+                    }
+                    arr.push(temp);
+                });
+                
+                console.log("arr load app :" , arr);
+                setData(arr);
+                console.log("log data    : ",data);
+                
+            });
+            
+            
+        }
+       
+        getData();
+        console.log("const loadData :  ",getData().arr);
+        
+        
+    }, []);
+    
+    const Item = ({title}) =>(
+        <View style={styles.item}>
+            <Text style={styles.viewGarden}>{title}</Text>
+        </View>
+    )
+    const renderItem = ({ item }) => (
+        <Item title={item.title} />
+      );
+    
+    const ViewItem = (props) => (
+        <View style={styles.viewGarden}>
+            <View>
+                <Text style={{fontSize: 28,color:'#eaece7'}}>{props.Name}</Text>
+            </View>
 
-        });
-        return() =>{
-            userRef.off('value',OnLoadingListener);
-        };
-    })
-    // const data = User.map(item,index);
-    const data =[ User.map((item,index) => {
-        id =  item.Id,
-        name = item.Name
-    },)];
+        </View>
+    )
+
     return(
         <View>
             <TouchableWithoutFeedback onPress ={() =>{
@@ -65,11 +100,9 @@ const GardenScreen = ({navigation}) =>{
             </TouchableWithoutFeedback>
             <FlatList
                 data={data}
-                renderItem={({ item }) => <Item name={item.name} />}
-                keyExtractor={item => item.id}
+                renderItem={renderItem}
+                
             />
-            
-            
 
         </View>
         )

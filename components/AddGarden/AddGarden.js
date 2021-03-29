@@ -29,9 +29,9 @@ export function AddGarden({todo,PressHandler,index}){
 
 export  const submidUser = (Id,Name) =>{
     return new Promise(function(resolve, reject) {
-        let key;
+        let key ;
         if(Id != null){
-            key =Id;
+            key = Id;
         }else{
             key = database().ref().push().key;
         }

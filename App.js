@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -32,22 +33,3 @@ function App() {
 }
 
 export default App;
-// function writeUserData(email, fname, lname) {
-//   database()
-//   .ref('/sonnam/123')
-//   .update({
-//     age: 32,
-//   })
-//   .then(() => console.log('Data updated.'));
-
-//   firebase.database().ref('Users/').set({
-//     email,
-//     fname,
-//     lname
-//   }).then((data) => {
-//     console.log('data', data);
-//   }).catch((error) => {
-//     console.log('error', error);
-//   });
-// }
-//  export default writeUserData;

@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "107996470229",
-    "firebase_url": "https://console.firebase.google.com/u/0/project/gardendatabases/authentication/users",
-    "project_id": "gardendatabases",
-    "storage_bucket": "gardendatabases.appspot.com"
+    "project_number": "851112124706",
+    "firebase_url": "https://console.firebase.google.com/u/0/project/sweproject-f9432/database/data",
+    "project_id": "sweproject-f9432",
+    "storage_bucket": "sweproject-f9432.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:107996470229:android:072b1e06a1b838d58dfb5c",
+        "mobilesdk_app_id": "1:851112124706:android:70c7df3765f7953396c57b",
         "android_client_info": {
           "package_name": "com.newprojectplay"
         }
       },
       "oauth_client": [
         {
-          "client_id": "107996470229-jv4old711ppd825u7jiflcp32pmlt0sd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.newprojectplay",
-            "certificate_hash": "d606de70cb05480180bd48d04f896b8bf0a90908"
-          }
-        },
-        {
-          "client_id": "107996470229-bsh7jebq2kk5u7c0hf0ououfvr84kuui.apps.googleusercontent.com",
+          "client_id": "851112124706-rqkf8c3j7ca8iro3jbbs643isfbn62bv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBSVHhvmK00V8RIHA5R_r6L5Cxe925POOI"
+          "current_key": "AIzaSyC0Xd8m3P_K-QEZd7FTQYAz6IOTLiKBGd0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "107996470229-bsh7jebq2kk5u7c0hf0ououfvr84kuui.apps.googleusercontent.com",
+              "client_id": "851112124706-rqkf8c3j7ca8iro3jbbs643isfbn62bv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
