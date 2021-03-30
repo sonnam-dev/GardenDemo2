@@ -11,7 +11,7 @@ import yourGarden from './components/AddGarden/yourGarden';
 
 
 import database, { firebase } from '@react-native-firebase/database';
-
+import firestore from '@react-native-firebase/database'
 const reference = database().ref('/users/123456');
 const Stack = createStackNavigator();
 
