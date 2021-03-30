@@ -27,9 +27,9 @@ export function AddGarden({todo,PressHandler,index}){
     }
 };
 
-export  const submidUser = (Id,Name) =>{
+export  const submidUser = (Id,Name,userKey) =>{
     return new Promise(function(resolve, reject) {
-        let key ;
+        let key = 1 ;
         if(Id != null){
             key = Id;
         }else{
@@ -41,7 +41,7 @@ export  const submidUser = (Id,Name) =>{
             Name: Name,
         };
         database()
-            .ref('Users/' +  key)
+            .ref(userKey +'/' +  key)
             .update(dataToSave).
             then(snapshot => { resolve(snapshot);
             })

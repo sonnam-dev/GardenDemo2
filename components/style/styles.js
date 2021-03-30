@@ -205,10 +205,25 @@ const styles = StyleSheet.create({
         padding: 16,
         marginTop: 5,
         borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 1,
+        borderWidth: 2,
+        borderRadius: 2,
         flexDirection:'row',
-        backgroundColor:'#a2ffff'
+        backgroundColor:'#a2ffff',
+      },
+      viewTypetext2:{ 
+        padding: 16,
+        marginTop: 5,
+        borderColor: 'black',
+        borderWidth: 5,
+        borderRadius: 2,
+        flexDirection:'column',
+        backgroundColor:'black',
+        borderColor:'yellow',
+        height:150
+      },
+      typeText:{
+        // flexDirection:'row',
+        color:'white',
       },
       buttonAdd:{
         flex:2,
@@ -230,13 +245,15 @@ const styles = StyleSheet.create({
       },
       
       viewGarden:{
-        width:"80%",
-        height:40,
-        alignItems:"center",
-        justifyContent:"center",
-        marginTop:15,
-        marginLeft: 50,
-        backgroundColor:"pink",
+        padding: 16,
+        marginTop: 5,
+        marginLeft:2,
+        marginRight:2,
+        borderWidth: 2,
+        borderRadius: 2,
+        flexDirection:'column',
+        // borderColor:'yellow',
+        backgroundColor:"#E9967A",
       },
       textLoad:{
         fontSize:28,

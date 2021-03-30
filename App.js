@@ -8,7 +8,7 @@ import SignUp from './components/LoginForder/SignUp';
 import Login from './components/LoginForder/Login';
 import Main from './components/LoginForder/main';    
 import yourGarden from './components/AddGarden/yourGarden';
-
+import AreaTakecare from './components/AddGarden/AreaTakecare';
 
 import database, { firebase } from '@react-native-firebase/database';
 
@@ -20,12 +20,12 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator >
         
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SignUp" component={SignUp} />
+        {/* <Stack.Screen name="Login" component={Login} /> */}
+        {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
         <Stack.Screen name="Main" component={Main} />
 
         <Stack.Screen name="yourGarden" component={yourGarden} />
-
+        <Stack.Screen name="AreaTakecare" component={AreaTakecare} />
 
       </Stack.Navigator>
     </NavigationContainer>
