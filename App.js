@@ -20,8 +20,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator >
         
-        {/* <Stack.Screen name="Login" component={Login} /> */}
-        {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Main" component={Main} />
 
         <Stack.Screen name="yourGarden" component={yourGarden} />

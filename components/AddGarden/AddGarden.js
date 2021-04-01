@@ -50,6 +50,29 @@ export  const submidUser = (Id,Name,userKey) =>{
 
     });
 };
+// export  const submidArea = (Id,Name,userKey) =>{
+//     return new Promise(function(resolve, reject) {
+//         let key = 1 ;
+//         if(Id != null){
+//             key = Id;
+//         }else{
+//             key = database().ref().push().key;
+//         }
+
+//         let dataToSave = {
+//             Id : key,
+//             Name: Name,
+//         };
+//         database()
+//             .ref(userKey +'/' +  key)
+//             .update(dataToSave).
+//             then(snapshot => { resolve(snapshot);
+//             })
+//             .catch(err => {reject(err);
+//         });
+
+//     });
+// };
 
 const styles = StyleSheet.create({
     item: {

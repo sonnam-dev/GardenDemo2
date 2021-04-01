@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text,Button,TouchableOpacity,ScrollView,Alert,TouchableWithoutFeedback,Keyboard,TextInput, FlatList, } from 'react-native';
+import {View, Text,Button,TouchableOpacity,ScrollView,Alert,TouchableWithoutFeedback,Keyboard,TextInput, FlatList,SafeAreaView } from 'react-native';
 import styles from '../style/styles' ;
 import AddGarden, { submidUser } from './AddGarden';
 import AreaTakecare from './AreaTakecare';
@@ -8,20 +8,26 @@ import firebase from '@react-native-firebase/app';
 import { Item } from 'native-base';
 
   
-const GardenScreen = ({navigation}) =>{
+function GardenScreen ({ navigation }) {
     
     const [Id,setId] = React.useState();
     const [Name,setName] = React.useState('');
 
     let curenUser = "";
     curenUser = firebase.auth().currentUser.email.split('@')[0];
-
+    console.log("name:  -- ", firebase.auth().currentUser );
     const CreateGarder = () => {
-       
-        if(Name == ""){
-            // alert("Type some thing...");
-            console.log("-------");
+        let check = 0;  
+        for(let i = 0;i < data.length;i++){
+            if(data[i].name == Name || data[0].name == ""){
+                check = 1;
+            }
+        }
+        if(check == 1){
+            // alert("Type some thing else...");
+            console.log("---------------name existed or not empty ---------------");
         }else{
+            let idcount = data.length ;
             submidUser(Id,Name,curenUser)
             .then(result => {
                 setId(null);
@@ -43,31 +49,44 @@ const GardenScreen = ({navigation}) =>{
                     let temp  = {
                         name: element.val().Name,
                         id : element.key,
-                        
                     }
                     arr.push(temp);
                 });
                 setData(arr);
             });
-            
         }
         getData();
-        
     }, []);
-    
+    // const username = firebase().currentUser.email.split('@')[0];
+    // const usersCollection = firestore().collection(username);
+    // console.log(usersCollection.id);
+    // const AddUser =() =>{
+    //     console.log("adduser");
+    //     usersCollection.doc().set({
+    //         name: 'son nam',
+    //         position: 'computer scient'
+    //     });
+    // };        
 
     const ViewItem = (props) => (
-        <View>
-            <TouchableOpacity
-                onPress={()=>{
-                    navigation.navigate('AreaTakecare');
-                }}>
-                
-                <View style={styles.viewGarden}>
-                    <Text style={{fontSize: 20,color:'white'}}>{props.name}</Text>
-                </View>
-            </TouchableOpacity>
-        </View>
+        
+        
+        <TouchableWithoutFeedback onPress ={() =>{
+            Keyboard.dismiss();
+        }}>
+            <View>
+                <TouchableOpacity
+                    onPress={()=>{
+                        navigation.navigate('AreaTakecare');
+                    }}>
+                    <View style={styles.viewGarden}>
+                        <Text style={{fontSize: 20,color:'white'}}>{props.name}</Text>
+                    </View>
+                    
+                </TouchableOpacity>
+            </View>
+        </TouchableWithoutFeedback>
+
     )
     
     return(
@@ -92,14 +111,15 @@ const GardenScreen = ({navigation}) =>{
                         </TouchableOpacity>
                     </View>
                 </TouchableWithoutFeedback>
-                <ScrollView>
+                <SafeAreaView style={{flex: 1}}>
                     <FlatList
                         data={data}
                         renderItem={({item}) => ViewItem(item)}
                         
                     />
-                </ScrollView> 
+                </SafeAreaView>
         </View>
-        )
-    }
+    )
+}
+   
 export default GardenScreen;    

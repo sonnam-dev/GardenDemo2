@@ -9,6 +9,10 @@ const Login = ({navigation}) => {
     const [password, setPassword] = useState('');
 
     const login = (email,password) =>{
+      if(email == "" || password ==""){
+        console.log("type email and password");
+        alert("type email and password");
+      }else{
       auth()
       .signInWithEmailAndPassword(email,password)
       .then(() => {
@@ -22,6 +26,7 @@ const Login = ({navigation}) => {
 
         console.error(error);
       });
+    }
   }
 
     return (

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Alert,TouchableOpacity,TouchableWithoutFeedback } from 'react-native';
 import styles from '../style/styles';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,30 +12,40 @@ const SignUp = ({navigation}) => {
   const [firtsname, setsetFirtsName] = useState('');
   const [lastname, setLastName] = useState('');
   const [confirmpassword, setConfirmPassword] = useState('');
+
   
   const register = (email,password) =>{
-    auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      console.log('User account created & signed in!');
-      navigation.navigate('Login')
-    })
-    .catch(error => {
-      if (error.code === 'auth/email-already-in-use') {
-        console.log('That email address is already in use!');
-        
+    if(email == "" || password ==""){
+        console.log("type email and password");
+        alert("type email and password");
+      }else{
+        auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            
+          console.log('User account created & signed in!');
+          navigation.navigate('Login')
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            console.log('That email address is already in use!');
+            
+          }
+    
+          if (error.code === 'auth/invalid-email') {
+            console.log('That email address is invalid!');
+          }
+    
+          console.error(error);
+        });
       }
-
-      if (error.code === 'auth/invalid-email') {
-        console.log('That email address is invalid!');
-      }
-
-      console.error(error);
-    });
   };
   return (
-
-    <View>
+    <TouchableWithoutFeedback onPress ={() =>{
+        Keyboard.dismiss();
+    }}> 
+    
+        <View>
             <Text style={styles.TextTitleSignUp}>Sign Up </Text>
             <Text style={styles.TextSignUp}>Firts Name</Text>
             <View style={styles.TextInputView}>
@@ -104,6 +114,7 @@ const SignUp = ({navigation}) => {
 
 
         </View>
+    </TouchableWithoutFeedback>
     )
   }
 export default SignUp;
